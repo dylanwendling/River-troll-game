@@ -1,0 +1,158 @@
+#include <iostream>
+
+#include <string>
+
+using namespace std;
+
+// print the string array
+
+void print(string player[]){
+
+cout<<"\nYour current items are:\n";
+
+for(int i=0;i<10;i++){
+
+if(!player[i].empty())
+
+cout<<"\n"<<player[i]<<"\n";
+
+}
+
+}
+
+// delete one item from the array
+
+void loose(string player[]){
+
+cout<<"\n One of your items broke while battling a dragon blocking your path\n";
+
+// loose one item
+
+for(int i=0;i<10;i++){
+
+if(!player[i].empty())
+
+{
+
+player[i].clear();
+
+break;
+
+}
+
+}
+
+print(player);
+
+}
+
+// add 3 items in the array
+
+void gain(string player[]){
+
+cout<<"You gained 3 items\n";
+
+// gain 3 items
+
+int n=3;
+
+string item;
+
+while(n--){
+
+cout<<"Enter item name:\n";
+
+cin>>item;
+
+for(int i=0;i<10;i++){
+
+if(player[i].empty()){
+
+player[i]=item;
+
+break;
+
+}
+
+}
+
+}
+
+print(player);
+
+}
+
+void item(string player[]){
+  char name;
+  char search;
+  char bag;
+  
+  int sum = 0, i=sum, n;
+
+	for(i = 0; i < 1; i++){
+    cout << " \nplease enter how many items you have\n";
+    cin >> bag;
+    cout << "\n you have "<<bag<<" items in you bag.\n";
+		cout << "\nEnter number between 1 - "<<bag<<"\n" << endl;
+		cin >> n;
+
+		sum = sum + n;
+
+	}
+  
+  cout<< "\n "<<player[sum]<<" is now you desinated favorite item.\n type in "<<player[sum]<<" to continue \n" <<endl;
+  cin>>name;
+  
+cout<<"\n You have come across a river troll at brige that leads to a town that you were hoping to explore to find more items. the river troll is not welcome to travelers and dislikes people with dark intentions thus it wants you to give up your most treasured item to show that your heart is true. You really need to get past this bridge, better search for it now or the troll will get angry. \n press any key to search for you fav item: \n "<<endl;
+
+cin>>search;
+  if ("search"){
+    cout<< "\n you gave the river troll " <<name<< " he will now let you pass\n";
+    
+    for(int i=0;i<10;i++){
+
+if(!player[i].empty())
+
+{
+
+player[sum].clear();
+
+break;
+
+}
+
+}
+
+print(player);
+
+}
+    } 
+  
+int main() {
+
+string player[10];
+
+// hard coding 3 items in the start of the game
+
+player[0]="BunnySword";
+
+player[1]="Ironman";
+
+player[2]="ninja";
+
+char ch;
+
+do{
+
+gain(player);
+
+loose(player);
+
+item(player);
+  
+  cout<<"\n do you wish to continue your journy? (Y/N)"<<endl;
+    cin>>ch;
+    
+}while(ch=='Y' || ch=='y');
+
+}
